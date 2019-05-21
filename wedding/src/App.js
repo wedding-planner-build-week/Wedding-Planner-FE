@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 //components 
 import Navbar from './components/Navbar.js';
@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import PrivateRoute from './components/PrivateRoute';
+import { withRouter } from "react-router";
+
 
 
 //routing 
@@ -32,4 +34,4 @@ const App = () => {
 
 }
 
-export default App;
+export default withRouter(App);

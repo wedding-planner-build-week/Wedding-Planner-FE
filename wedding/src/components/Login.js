@@ -32,13 +32,10 @@ class Login extends React.Component {
             this.props.history.push('/login');
         })
     }
-
     render() {
         console.log("Working");
         return (
 
-            <div>Login Page</div>
-        /*
             <CSSTransition
                 in={this.state.appearLogin}
                 appear={true}
@@ -73,7 +70,6 @@ class Login extends React.Component {
                     </form>
                 </div>
             </CSSTransition>
-            */
         )
         
     }
@@ -85,5 +81,4 @@ const mapStateToProps = (state) => {
         ...state, 
     }
 }
-
-export default connect(mapStateToProps, { login })(Login);
+export default Login;

@@ -23,11 +23,11 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/users/" component={Users} />
+        <Route exact path="/users" component={Users} />
         <Route exact path="/users/:id" component={SingleUser} />
-        <Route exact path="/login/" component={ Login } />
-        <Route exact path="/register/" component={ Register } />
-        <PrivateRoute exact path="/userpanel/" component={ UserPanel } />
+        <Route exact path="/login" component={ Login } />
+        <Route exact path="/register" component={ Register } />
+        <PrivateRoute exact path="/userpanel" component={ UserPanel } />
       </Switch>
       </>
     );

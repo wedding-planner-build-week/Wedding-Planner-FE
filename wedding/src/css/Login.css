@@ -1,0 +1,63 @@
+/* Login styles */
+
+.login {
+    background-color: rgb(216, 216, 216);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    -webkit-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+    box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+.login-text {
+    margin-right: 370px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.input {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.login-button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+.login-button:hover {
+  color: white;
+  background-color: #8694B8;
+  border: 1px solid #8694B8;
+  cursor: pointer;
+}
+.login-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* appear on page load */
+.fade-appear {
+    opacity: 0;
+}
+.fade-appear.fade-appear-active {
+    opacity: 1;
+    transition: opacity 500ms linear;
+}
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms linear;
+}

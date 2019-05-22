@@ -3,7 +3,7 @@ import axios from 'axios';
 const URL = 'https://lambda-wedding-planner.herokuapp.com';
 //registering
 export const REGISTER_START = 'REGISTER_START';
-export const REGISTER_SUCCESS = 'REGISTER_SUCESS';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 //log-in
 export const LOGIN_START = 'LOGIN_START';
@@ -12,10 +12,12 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 //logout 
 export const LOGOUT = 'LOGOUT'
 //get-data
-export const GET_DATA = 'GET_DATA';
 export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
 export const GET_DATA_FAIL = 'GET_DATA_FAIL';
 //update 
+export const UPDATE_FAIL = 'UPDATE_FAIL';
+export const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
+export const UPDATE_DATA = 'UPDATE_DATA';
 export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
 export const UPDATE_PASSWORD_SUCCESS = 'UPDATE_PASSWORD_SUCCESS';
 export const UPDATE_PASSWORD_FAIL = 'UPDATE_PASSWORD_FAIL';
@@ -54,17 +56,18 @@ export const login = (credentials) => dispatch => {
         })
 }
 
-export const getData = (post) => dispatch => {
-    dispatch({ type: GET_DATA});
-    return axios.post(`${URL}/api/post`, post, {headers: {Authorization:localStorage.getItem('token')}})
-        .then((res) => {
-            console.log(res);
-            dispatch({ type: GET_DATA_SUCCESS, payload: res.data });
-        })
-        .catch((err) => {
-            console.log(err);
-            dispatch({ type: GET_DATA_FAIL, payload: err });
-        })
+export const updateData = (post) => dispatch => {
+    dispatch({ type: UPDATE_DATA});
+    return axios.post(`${URL}/api/post`, post )
+    .then((res) => {
+        console.log(res);
+        localStorage.setItem('id', res.data.id);
+        dispatch({ type: UPDATE_SUCCESS, payload: res.data.id });
+    })
+    .catch((err) => {
+        console.log(err);
+        dispatch({ type: UPDATE_FAIL, payload: err });
+    })
 }
 
 export const updatePassword = (password) => dispatch => {

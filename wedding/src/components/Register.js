@@ -10,12 +10,10 @@ import { CSSTransition } from 'react-transition-group';
 
 class Register extends React.Component {
     state={
-        user: {
         username: '',
         password: '',
         location: '',
         email: '',
-        },
         appearRegister: true
     }
 
@@ -31,11 +29,12 @@ class Register extends React.Component {
         e.preventDefault();
         this.props.register(this.state)
         .then(() => {
-            this.props.history.push("/home");
+            this.props.history.push("/userpanel");
         })
     }
 
     render() {
+        console.log(this.state);
         return (
             <CSSTransition
                 in={this.state.appearRegister}
@@ -100,4 +99,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default Register;
+export default connect(mapStateToProps, { register })(Register);

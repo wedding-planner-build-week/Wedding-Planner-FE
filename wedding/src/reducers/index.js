@@ -6,7 +6,7 @@ import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    GET_DATA,
+    UPDATE_DATA,
     GET_DATA_SUCCESS,
     GET_DATA_FAIL,
     UPDATE_PASSWORD,
@@ -68,10 +68,10 @@ export const rootReducer = (state=initialState, action) => {
         return {
             error: action.payload
         }
-        case GET_DATA:
+        case UPDATE_DATA:
         return {
             ...state, 
-            fetchingData: true,
+            fetchingData: false,
             isLoggedIn: true
         }
         case GET_DATA_SUCCESS: 

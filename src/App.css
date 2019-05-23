@@ -133,7 +133,7 @@ h6 {
 }
 
 .show-nav {
-  height: 100px;
+  height: 160px;
 }
 @media screen and (min-width: 768px) {
   .nav-btn {
@@ -165,7 +165,7 @@ h6 {
   justify-content: center;
 }
 .roomsHero {
-  background-image: url('#');
+  background-image: url('./images/defaultBcg.jpeg');
   min-height: 60vh;
 }
 /* End of Hero */

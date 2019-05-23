@@ -11,7 +11,6 @@ import { CSSTransition } from 'react-transition-group';
 class UserPanel extends React.Component {
     state={
         user:{
-        id: '',
         couple_name: '',
         wedding_theme: '',
         wedding_date: '',

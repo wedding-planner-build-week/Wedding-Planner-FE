@@ -5,6 +5,7 @@ const URL = 'https://lambda-wedding-planner.herokuapp.com';
 export const REGISTER_START = 'REGISTER_START';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
+export const USERPOST_START = 'USERPOST_START';
 //log-in
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -28,6 +29,7 @@ export const DELETE_ACCOUNT_FAIL = 'DELETE_ACCOUNT_FAIL';
 //actions
 
 export const register = (credentials) => dispatch => {
+    console.log(credentials);
     dispatch({ type: REGISTER_START });
     return axios.post(`${URL}/api/auth/register`, credentials)
         .then((res) => {
@@ -56,20 +58,18 @@ export const login = (credentials) => dispatch => {
         })
 }
 
-export const updateData = (post) => dispatch => {
-    dispatch({ type: UPDATE_DATA});
-    return axios.post(`${URL}/api/post`, post )
+export const updateData = (userpost) => dispatch => {
+    dispatch({type: USERPOST_START});
+    return axios.post(`${URL}/api/post`, userpost)
     .then((res) => {
         console.log(res);
-        localStorage.setItem('id', res.data.id);
-        dispatch({ type: UPDATE_SUCCESS, payload: res.data.id });
+        dispatch({type: UPDATE_SUCCESS, payload: res.data, id: res.data.id});
     })
-    .catch((err) => {
-        console.log(err);
-        dispatch({ type: UPDATE_FAIL, payload: err });
+    .catch(err => {
+        dispatch({type: UPDATE_FAIL, payload: err});
+
     })
 }
-
 export const updatePassword = (password) => dispatch => {
     dispatch({ type: UPDATE_PASSWORD })
     return axios.put(`${URL}/api/auth/users`, password, {headers: {Authorization:localStorage.getItem('token')}})

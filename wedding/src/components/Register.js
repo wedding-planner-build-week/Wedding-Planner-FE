@@ -10,10 +10,12 @@ import { CSSTransition } from 'react-transition-group';
 
 class Register extends React.Component {
     state={
+        user:{
         username: '',
         password: '',
         location: '',
         email: '',
+        },
         appearRegister: true
     }
 
@@ -21,16 +23,46 @@ class Register extends React.Component {
         e.preventDefault();
         this.setState({
             ...this.state,
+            user : {
+                ...this.state.user,
             [e.target.name] : e.target.value
+            }
         })
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.register(this.state)
+        this.props.register(this.state.user)
         .then(() => {
             this.props.history.push("/userpanel");
         })
+    }
+
+    updatePassword = (e) => {
+        e.preventDefault();
+        let password = {password: this.state.password}
+        this.props.updatePassword(password)
+        .then(this.props.history.push('/'));
+    }
+
+    deleteAccount = (e) => {
+        e.preventDefault();
+        //action to call api
+        this.props.deleteAccount()
+        .then(() => {
+            this.removeStorage();
+            this.props.history.push('/register');
+        })
+    }
+
+    removeStorage = () => {
+        localStorage.clear();
+    }
+
+    logOut = (e) => {
+        e.preventDefault();
+        this.removeStorage();
+        this.props.history.push('/');
     }
 
     render() {
@@ -50,7 +82,7 @@ class Register extends React.Component {
                         onChange={this.handleChanges}
                         placeholder="username"
                         name="username"
-                        value={this.state.username}
+                        value={this.state.user.username}
                         className="input"
                         required
                     >
@@ -59,7 +91,7 @@ class Register extends React.Component {
                         onChange={this.handleChanges}
                         placeholder="password"
                         name="password"
-                        value={this.state.password}
+                        value={this.state.user.password}
                         className="input"
                         required
                     >
@@ -68,7 +100,7 @@ class Register extends React.Component {
                         onChange={this.handleChanges}
                         placeholder="location"
                         name="location"
-                        value={this.state.location}
+                        value={this.state.user.location}
                         className="input"
                         required
                     >
@@ -77,7 +109,7 @@ class Register extends React.Component {
                         onChange={this.handleChanges}
                         placeholder="email"
                         name="email"
-                        value={this.state.email}
+                        value={this.state.user.email}
                         className="input"
                         required
                     >

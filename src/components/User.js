@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
-import UserContainer from '../components/UserContainer';
+import SingleUser from '../pages/SingleUser';
 import { Link } from "react-router-dom";
 
 const User = () => {
@@ -14,7 +14,7 @@ const User = () => {
           </Link>
         </Banner>
       </Hero>
-      <UserContainer/>
+      <SingleUser/>
     </>
   );
 };

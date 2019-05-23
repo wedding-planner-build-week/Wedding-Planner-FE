@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import UserCard from './UserCard';
-export default class MovieList extends Component {
+import SingleUser from './SingleUser';
+
+export default class UserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +38,7 @@ export default class MovieList extends Component {
 function UserDetails({ post }) {
   return (
     <Link to={`/users/${post.id}`}>
-      <UserCard post={post} />
+      <SingleUser post={post} />
     </Link>
   );
 }

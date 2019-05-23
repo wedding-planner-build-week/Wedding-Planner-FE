@@ -26,15 +26,15 @@ export default class MovieList extends Component {
   render() {
     return (
       <div className="room-list">
-        {this.state.posts.map(movie => (
-          <MovieDetails key={movie.id} movie={movie} />
+        {this.state.posts.map(post => (
+          <UserDetails key={post.id} post={post} />
         ))}
       </div>
     );
   }
 }
 
-function MovieDetails({ post }) {
+function UserDetails({ post }) {
   return (
     <Link to={`/users/${post.id}`}>
       <UserCard post={post} />

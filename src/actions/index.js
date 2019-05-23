@@ -60,7 +60,7 @@ export const login = (credentials) => dispatch => {
 
 export const updateData = (userpost) => dispatch => {
     dispatch({type: USERPOST_START});
-    return axios.post(`${URL}/api/post`, userpost)
+    return axios.post(`${URL}/api/`, userpost)
     .then((res) => {
         console.log(res);
         dispatch({type: UPDATE_SUCCESS, payload: res.data, id: res.data.id});

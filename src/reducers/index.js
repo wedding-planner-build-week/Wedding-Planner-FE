@@ -14,7 +14,9 @@ import {
     UPDATE_PASSWORD_FAIL,
     DELETE_ACCOUNT,
     DELETE_ACCOUNT_SUCCESS,
-    DELETE_ACCOUNT_FAIL
+    DELETE_ACCOUNT_FAIL,
+    UPDATE_SUCCESS,
+    UPDATE_FAIL
 } from '../actions';
 
 //The source of all truth
@@ -112,6 +114,14 @@ export const rootReducer = (state=initialState, action) => {
             ...state, 
             error: action.payload
         }
+        case UPDATE_SUCCESS:
+            return {
+            }
+        case UPDATE_FAIL:
+            return{
+                error: action.payload
+            }
+
         default: return state;
     }
 }

@@ -59,13 +59,15 @@ export const login = (credentials) => dispatch => {
 }
 
 export const updateData = (userpost) => dispatch => {
+    console.log(userpost);
     dispatch({type: USERPOST_START});
-    return axios.post(`${URL}/api/post`, userpost)
+    return axios.post(`${URL}/api/posts`, userpost, {headers: {Authorization:localStorage.getItem('token')}})
     .then((res) => {
         console.log(res);
-        dispatch({type: UPDATE_SUCCESS, payload: res.data, id: res.data.id});
+        dispatch({type: UPDATE_SUCCESS, payload: res.data});
     })
     .catch(err => {
+        console.log(err);
         dispatch({type: UPDATE_FAIL, payload: err});
 
     })

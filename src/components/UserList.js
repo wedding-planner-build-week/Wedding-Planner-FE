@@ -20,11 +20,13 @@ class UserList extends Component {
 
   render() {
     return (
-      <div className="room-list">
+      <section className="featured-rooms">
+      <div className="featured-rooms-center">
         {this.props.posts.map(post => (
           <UserDetails key={post.id} post={post} />
         ))}
       </div>
+      </section>
     );
   }
 }

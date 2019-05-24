@@ -1,20 +1,24 @@
+.register-cont{
+    min-height: calc(100vh - 66px);
+  background: url("../images/defaultBcg.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .register {
-    background-color: rgb(216, 216, 216);
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 10px;
-    -webkit-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
-    -moz-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
-    box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
-    border-radius: 5px;
-    margin-top: 50px;
-    margin-bottom: 200px;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--mainWhite);
+  padding: 2rem 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
 }
 .register-text {
     margin-right: 330px;
 }
 .register-link {
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
@@ -31,17 +35,4 @@
 .input {
     padding: 10px;
     margin-bottom: 10px;
-}
-.register-button {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid black;
-    font-size: 1.5rem;
-    border-radius: 5px;
-}
-.register-button:hover {
-    background-color: #8694B8;
-    border: 1px solid #8694B8;
-    color: white;
-    cursor: pointer;
 }

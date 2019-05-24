@@ -74,6 +74,7 @@ class Register extends React.Component {
                 timeout={500}
                 classNames="fade"
             >
+                <div className="register-cont">
             <div className="register">
                 <h1 className="register-text">Register</h1>
                 <hr />
@@ -114,10 +115,11 @@ class Register extends React.Component {
                         required
                     >
                     </input>
-                    <button className="register-button">Register</button>
+                    <button className="btn-primary">Register</button>
                     <p>Already have an account?</p>
                     <NavLink className="login-link" to="/userpanel">*Login</NavLink>
                 </form>
+            </div>
             </div>
             </CSSTransition>
         )

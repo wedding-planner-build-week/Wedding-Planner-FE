@@ -49,6 +49,7 @@ class UserPanel extends React.Component {
                 timeout={500}
                 classNames="fade"
             >
+                <div className="register-cont">
             <div className="register">
                 <h1 className="register-text">Create Post Here</h1>
                 <hr />
@@ -98,8 +99,9 @@ class UserPanel extends React.Component {
                         required
                     >
                     </input>
-                    <button className="register-button">Submit</button>
+                    <button className="btn-primary">Submit</button>
                 </form>
+            </div>
             </div>
             </CSSTransition>
         )

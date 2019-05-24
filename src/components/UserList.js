@@ -33,9 +33,11 @@ class UserList extends Component {
 
 function UserDetails({ post }) {
   return (
+    <button className="btn-primary">
     <Link to={`/users/${post.id}`}>
-     <p>{post.couple_name}</p>
+     <div className="user-detail">{post.couple_name}</div>
     </Link>
+    </button>
   );
 }
 

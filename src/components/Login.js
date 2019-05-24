@@ -45,6 +45,7 @@ class Login extends React.Component {
                 timeout={500}
                 classNames="fade"
             >
+                <div className ="login-con">
                 <div className="login">
                     <h1 className="login-text">Login</h1>
                     <hr/>
@@ -67,10 +68,11 @@ class Login extends React.Component {
                             required
                         >
                         </input>
-                        <button className="login-button">Login</button>
+                        <button className="btn-primary">Login</button>
                         <p>Don't have an account?</p>
                         <NavLink className="register-link" to="/register">*Register</NavLink>
                     </form>
+                </div>
                 </div>
             </CSSTransition>
         )

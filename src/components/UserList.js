@@ -20,20 +20,24 @@ class UserList extends Component {
 
   render() {
     return (
-      <div className="room-list">
+      <section className="featured-rooms">
+      <div className="featured-rooms-center">
         {this.props.posts.map(post => (
           <UserDetails key={post.id} post={post} />
         ))}
       </div>
+      </section>
     );
   }
 }
 
 function UserDetails({ post }) {
   return (
+    <button className="btn-primary">
     <Link to={`/users/${post.id}`}>
-     <p>{post.couple_name}</p>
+     <div className="user-detail">{post.couple_name}</div>
     </Link>
+    </button>
   );
 }
 

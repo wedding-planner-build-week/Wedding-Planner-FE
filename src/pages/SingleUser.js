@@ -10,22 +10,16 @@ class SingleUser extends Component {
     render() {
     const { couple_name, wedding_theme, item_photo, wedding_date, wedding_location, wedding_photographer } = this.props.post;
     return (
-    <div className="featured-rooms">
-      <h2>{couple_name}</h2>
-      <div className="featured-rooms">
-        Wedding Theme: <em>{wedding_theme}</em>
-      </div>
-      <div className="featured-rooms">
+    <div className="single-room">
+      <div className="single-room-images">
       <Img src={item_photo} />
       </div>
-      <div className="featured-rooms">
-        Wedding Date: <em>{wedding_date}</em>
-      </div>
-      <div className="featured-rooms">
-        Wedding Location: <em>{wedding_location}</em>
-      </div>
-      <div className="featured-rooms">
-        Wedding Photographer: <em>{wedding_photographer}</em>
+      <div className="single-room-info">
+      <h2>{couple_name}</h2>
+      <h3>Wedding Theme: <em>{wedding_theme}</em></h3>
+      <h4>Wedding Date: <em>{wedding_date}</em></h4>
+      <h5>Wedding Location: <em>{wedding_location}</em></h5>
+      <h6>Wedding Photographer: <em>{wedding_photographer}</em></h6>
       </div>
     </div>
   );

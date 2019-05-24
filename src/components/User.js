@@ -1,10 +1,11 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
-import UserContainer from '../components/UserContainer';
+//import SingleUser from '../pages/SingleUser';
+import UserList from './UserList';
 import { Link } from "react-router-dom";
 
-const User = () => {
+const User = (props) => {
   return (
     <>
       <Hero hero="roomsHero">
@@ -14,7 +15,7 @@ const User = () => {
           </Link>
         </Banner>
       </Hero>
-      <UserContainer/>
+      <UserList getPosts={props.getPosts}/>
     </>
   );
 };

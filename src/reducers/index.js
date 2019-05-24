@@ -16,12 +16,18 @@ import {
     DELETE_ACCOUNT_SUCCESS,
     DELETE_ACCOUNT_FAIL,
     UPDATE_SUCCESS,
-    UPDATE_FAIL
+    UPDATE_FAIL,
+    GET_POSTS_SUCCESS,
+    GET_POSTS,
+    GET_POST_SUCCESS,
+    GET_POST
 } from '../actions';
 
 //The source of all truth
 const initialState = {
     data: [],
+    posts: [],
+    post: {},
     title: '',
     body: '',
     fetchingData: false,
@@ -121,6 +127,25 @@ export const rootReducer = (state=initialState, action) => {
             return{
                 error: action.payload
             }
+        case GET_POSTS:
+            return {
+                ...state,
+            }
+        case GET_POSTS_SUCCESS:
+            return {
+                ...state,
+                posts: action.payload
+            }
+        case GET_POST:
+            return {
+                ...state,
+            }
+        case GET_POST_SUCCESS:
+            return {
+                ...state,
+                post: action.payload
+            }
+
 
         default: return state;
     }

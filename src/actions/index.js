@@ -26,6 +26,12 @@ export const UPDATE_PASSWORD_FAIL = 'UPDATE_PASSWORD_FAIL';
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 export const DELETE_ACCOUNT_SUCCESS = 'DELETE_ACCOUNT_SUCCESS';
 export const DELETE_ACCOUNT_FAIL = 'DELETE_ACCOUNT_FAIL';
+//get posts
+export const GET_POSTS = 'GET_POSTS';
+export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS';
+//get post
+export const GET_POST = 'GET_POST';
+export const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
 //actions
 
 export const register = (credentials) => dispatch => {
@@ -108,3 +114,37 @@ export const logout = (credentials) => dispatch => {
             console.log(err);
         })
 }
+
+export const getPosts = () => dispatch => {
+    dispatch({type: GET_POSTS})
+    axios.get('https://lambda-wedding-planner.herokuapp.com/api/posts/all')
+      .then(response => {
+        console.log(response.data);
+        dispatch({type: GET_POSTS_SUCCESS, payload: response.data})
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+}
+
+export const getPost = (id) => dispatch => {
+    dispatch({type: GET_POST})
+    axios.get('https://lambda-wedding-planner.herokuapp.com/api/posts/all')
+      .then(response => {
+        console.log( response.data.filter(post => {
+            console.log(post.id == id);
+            return post.id == id
+        }));
+        console.log(id);
+        console.log(response);
+        dispatch({type: GET_POST_SUCCESS,
+             payload: response.data.filter(post => {
+                 return post.id == id
+             })[0]
+            })
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }

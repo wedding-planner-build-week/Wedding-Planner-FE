@@ -1,15 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import {getPost} from '../actions';
+import Img from 'react-image';
 
-const SingleUser = props => {
-  const { couple_name, wedding_theme, item_photo, wedding_date, wedding_location, wedding_photographer } = props.profile;
-  return (
+class SingleUser extends Component {
+  componentDidMount() {
+    this.props.getPost(this.props.match.params.id);
+  }
+    render() {
+    const { couple_name, wedding_theme, item_photo, wedding_date, wedding_location, wedding_photographer } = this.props.post;
+    return (
     <div className="featured-rooms">
       <h2>{couple_name}</h2>
       <div className="featured-rooms">
         Wedding Theme: <em>{wedding_theme}</em>
       </div>
       <div className="featured-rooms">
-        Photo: <strong>{item_photo}</strong>
+      <Img src={item_photo} />
       </div>
       <div className="featured-rooms">
         Wedding Date: <em>{wedding_date}</em>
@@ -22,6 +29,14 @@ const SingleUser = props => {
       </div>
     </div>
   );
-};
+  }
+}
 
-export default SingleUser;
+
+const mapStateToProps = (state) => {
+  return {
+    post: state.post
+  }
+}
+
+export default connect(mapStateToProps, {getPost})(SingleUser);

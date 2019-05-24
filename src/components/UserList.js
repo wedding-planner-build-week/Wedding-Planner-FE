@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import SingleUser from './SingleUser';
+import SingleUser from '../pages/SingleUser';
 
-export default class UserList extends Component {
+
+class UserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,22 +13,15 @@ export default class UserList extends Component {
   }
 
   componentDidMount() {
-    // fill me in with an HTTP Request to `https://lambda-wedding-planner.herokuapp.com/api/posts/all`
-    const myPromise = axios.get('https://lambda-wedding-planner.herokuapp.com/api/posts/all');
-    myPromise
-      .then(response => {
-        this.setState({ posts: response.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    this.setState({ posts: [] });
+    console.log("componentDidMount");
+    this.props.getPosts();
+    //this.setState({ posts: [] });
   }
 
   render() {
     return (
       <div className="room-list">
-        {this.state.posts.map(post => (
+        {this.props.posts.map(post => (
           <UserDetails key={post.id} post={post} />
         ))}
       </div>
@@ -38,7 +32,15 @@ export default class UserList extends Component {
 function UserDetails({ post }) {
   return (
     <Link to={`/users/${post.id}`}>
-      <SingleUser post={post} />
+     <p>{post.couple_name}</p>
     </Link>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts
+  }
+}
+
+export default connect(mapStateToProps, {})(UserList);

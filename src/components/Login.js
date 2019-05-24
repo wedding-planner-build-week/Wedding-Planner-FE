@@ -31,6 +31,9 @@ class Login extends React.Component {
         .then(() => {
             this.props.history.push('/userpanel');
         })
+        .catch(() => {
+            this.props.hisoty.push('/login');
+        })
     }
     render() {
         console.log("Working");

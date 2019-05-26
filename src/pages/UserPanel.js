@@ -13,6 +13,7 @@ class UserPanel extends React.Component {
         user:{
         couple_name: '',
         wedding_theme: '',
+        item_photo: '',
         wedding_date: '',
         wedding_location: '',
         wedding_photographer: '',
@@ -68,6 +69,15 @@ class UserPanel extends React.Component {
                         placeholder="Wedding Theme"
                         name="wedding_theme"
                         value={this.state.user.wedding_theme}
+                        className="input"
+                        required
+                    >
+                    </input>
+                    <input
+                        onChange={this.handleChanges}
+                        placeholder="Wedding Image Link"
+                        name="item_photo"
+                        value={this.state.user.item_photo}
                         className="input"
                         required
                     >
